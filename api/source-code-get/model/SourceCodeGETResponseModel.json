@@ -3,6 +3,6 @@
   "title" : "SourceCodeGETResponseModel",
   "type" : "object",
   "properties" : {
-    "data" : { "type" : "object" }
+    "data" : { "type" : "string" }
   }
 }
