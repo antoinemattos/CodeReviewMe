@@ -1,0 +1,1 @@
+aws lambda create-function --region us-east-1 --function-name source-code-get --zip-file fileb://code.zip --role arn:aws:iam::640293706338:role/lambda_basic_execution --handler source-code-get.handler --runtime nodejs
