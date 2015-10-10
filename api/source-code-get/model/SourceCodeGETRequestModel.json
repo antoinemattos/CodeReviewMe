@@ -1,0 +1,9 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "SourceCodeGETRequestModel",
+  "type" : "object",
+  "properties" : {
+    "dataSourceName" : { "type" : "string" },
+    "relativePath" : { "type" : "string" }
+  }
+}

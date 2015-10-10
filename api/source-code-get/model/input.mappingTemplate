@@ -1,0 +1,4 @@
+{
+"dataSourceName" : "$input.params().querystring.dataSourceName",
+"relativePath" : "$input.params().querystring.relativePath"
+}

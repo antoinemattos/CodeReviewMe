@@ -1,0 +1,6 @@
+#set($inputRoot = $input.json('$'))
+{
+    "stage" : "$context.stage",
+    "request-id" : "$context.requestId",
+    "data" : $inputRoot
+}

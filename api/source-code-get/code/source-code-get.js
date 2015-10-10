@@ -2,7 +2,9 @@ var request = require('request');
 
 var SOURCE_CODE_GET_CONSTANTS = {
     GITHUB: 'github',
-    GITHUB_ROOT: 'https://raw.githubusercontent.com'
+    GITHUB_ROOT: 'https://raw.githubusercontent.com',
+    VERSION: '1.0',
+    TYPE: 'SOURCE_CODE_GET'
 };
 
 var GitHubSourceRetriever = {
@@ -12,7 +14,7 @@ var GitHubSourceRetriever = {
 
     retrieveAsync: function(relativePath, successCallback, failureCallback) {
         if (relativePath === undefined || relativePath === null || relativePath === "") {
-            failureCallback(new Error('not valid source path'));
+            failureCallback(new Error('ERROR: not valid source path'));
             return;
         }
 
@@ -22,7 +24,7 @@ var GitHubSourceRetriever = {
                 successCallback(body);
             }
             else {
-                failureCallback("Distant server failed with " + JSON.stringify(response));
+                failureCallback("ERROR: Distant server failed with " + JSON.stringify(response));
             }
         });
     }
@@ -43,14 +45,21 @@ var SourceRetriever = {
 };
 
 exports.handler = function(event, context) {
-    console.log('Received event:', JSON.stringify(event, null, 2));
+    console.log('INFOTRACE: Received event:', JSON.stringify(event, null, 2));
 
     if (!SourceRetriever.isSupportedDataSource(event.dataSourceName)) {
-        context.fail(new Error('dataSourceName is not valid'));
+        context.fail(new Error('ERROR: dataSourceName is not valid'));
     }
 
     var successCallback = function(content) {
-        context.succeed(content);
+        var responseObject = {
+            version: SOURCE_CODE_GET_CONSTANTS.VERSION,
+            type: SOURCE_CODE_GET_CONSTANTS.TYPE,
+            data_source_name: event.dataSourceName,
+            relative_path: event.relativePath,
+            source: content
+        };
+        context.succeed(responseObject);
     };
 
     var failureCallback = function(error) {
