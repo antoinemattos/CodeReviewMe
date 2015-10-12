@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>f9d7db40-9ae5-4c3b-ba07-f9275ec3a79d</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="SourceCodeRetriever">
+      <UniqueIdentifier>{8cd8482b-4d96-408e-8018-b6afa66a3c05}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="SourceCodeRetrieverClient.cpp">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCodeRetrieverDataModelKeys.cpp">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ISourceCodeRetrieverClient.h">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCodeRetrieverClient.h">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClInclude>
+    <ClInclude Include="ISourceCodeRetrieverDataModelKeys.h">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCodeRetrieverDataModelKeys.h">
+      <Filter>SourceCodeRetriever</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
